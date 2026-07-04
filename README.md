@@ -12,6 +12,11 @@
   <img src="Assets/image(1).webp" width="34%">
 </p>
 
+# Finished Build
+
+![alt text](<Meraki 2.png>) 
+![alt text](<Meraki 1.png>)
+
 # Name
 
 Meraki, is a greek word that means 'to do something with soul, creativity, or love; leaving a piece of yourself in what you do'.

@@ -1,16 +1,54 @@
-@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap');
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-body {
-  background: #080808;
-  color: #d0d0d0;
-  font-family: 'Inter', -apple-system, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  overflow: hidden;
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
 }
 
-button { cursor: pointer; border: none; outline: none; font-family: inherit; }
-a { text-decoration: none; color: inherit; }
-::-webkit-scrollbar { width: 3px; }
-::-webkit-scrollbar-thumb { background: #222; border-radius: 2px; }
+html {
+  min-height: 100%;
+}
+
+body {
+  min-height: 100vh;
+  background:
+    radial-gradient(circle at top left, rgba(10, 132, 255, 0.08), transparent 26%),
+    radial-gradient(circle at top right, rgba(175, 82, 222, 0.04), transparent 18%),
+    linear-gradient(180deg, #fbfbfd 0%, #f2f3f7 100%);
+  color: #111827;
+  font-family: -apple-system, BlinkMacSystemFont, 'SF Pro Display', 'SF Pro Text', 'Segoe UI', sans-serif;
+  -webkit-font-smoothing: antialiased;
+  overflow-x: hidden;
+}
+
+button {
+  cursor: pointer;
+  border: none;
+  outline: none;
+  font-family: inherit;
+}
+
+button:disabled {
+  cursor: not-allowed;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+code,
+pre {
+  font-family: 'SF Mono', SFMono-Regular, ui-monospace, Menlo, monospace;
+}
+
+::-webkit-scrollbar {
+  width: 10px;
+  height: 10px;
+}
+
+::-webkit-scrollbar-thumb {
+  background: rgba(107, 114, 128, 0.22);
+  border-radius: 999px;
+  border: 2px solid transparent;
+  background-clip: padding-box;
+}

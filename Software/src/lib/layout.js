@@ -1,124 +1,178 @@
-export const U = 52;
-export const GAP = 3;
+export const U = 54;
+export const GAP = 6;
+export const TOTAL_COLUMNS = 16;
 
-export const ROWS = [
+export const LAYER_META = [
+  { id: 0, name: 'Win Base', short: 'WB' },
+  { id: 1, name: 'Win Fn', short: 'WF' },
+  { id: 2, name: 'Mac Base', short: 'MB' },
+  { id: 3, name: 'Mac Fn', short: 'MF' },
+];
+
+export const MATRIX_LAYOUT = [
   [
-    { main:'Esc',  w:1,    x:0,    r:0, c:14 },
-    { main:'1', alt:'!',   w:1,    x:1,    r:0, c:1  },
-    { main:'2', alt:'@',   w:1,    x:2,    r:0, c:2  },
-    { main:'3', alt:'#',   w:1,    x:3,    r:0, c:3  },
-    { main:'4', alt:'$',   w:1,    x:4,    r:0, c:4  },
-    { main:'5', alt:'%',   w:1,    x:5,    r:0, c:5  },
-    { main:'6', alt:'^',   w:1,    x:6,    r:0, c:6  },
-    { main:'7', alt:'&',   w:1,    x:7,    r:0, c:7  },
-    { main:'8', alt:'*',   w:1,    x:8,    r:0, c:8  },
-    { main:'9', alt:'(',   w:1,    x:9,    r:0, c:9  },
-    { main:'0', alt:')',   w:1,    x:10,   r:0, c:10 },
-    { main:'-', alt:'_',   w:1,    x:11,   r:0, c:11 },
-    { main:'=', alt:'+',   w:1,    x:12,   r:0, c:12 },
-    { main:'\\',alt:'|',   w:1,    x:13,   r:0, c:13 },
-    { main:'`', alt:'~',   w:1,    x:14,   r:0, c:0  },
+    { legend: 'Esc', matrix: [0, 0], x: 0, w: 1 },
+    { legend: '1', shifted: '!', matrix: [0, 1], x: 1, w: 1 },
+    { legend: '2', shifted: '@', matrix: [0, 2], x: 2, w: 1 },
+    { legend: '3', shifted: '#', matrix: [0, 3], x: 3, w: 1 },
+    { legend: '4', shifted: '$', matrix: [0, 4], x: 4, w: 1 },
+    { legend: '5', shifted: '%', matrix: [0, 5], x: 5, w: 1 },
+    { legend: '6', shifted: '^', matrix: [0, 6], x: 6, w: 1 },
+    { legend: '7', shifted: '&', matrix: [0, 7], x: 7, w: 1 },
+    { legend: '8', shifted: '*', matrix: [0, 8], x: 8, w: 1 },
+    { legend: '9', shifted: '(', matrix: [0, 9], x: 9, w: 1 },
+    { legend: '0', shifted: ')', matrix: [0, 10], x: 10, w: 1 },
+    { legend: '-', shifted: '_', matrix: [0, 11], x: 11, w: 1 },
+    { legend: '=', shifted: '+', matrix: [0, 12], x: 12, w: 1 },
+    { legend: '\\', shifted: '|', matrix: [0, 13], x: 13, w: 1 },
+    { legend: '`', shifted: '~', matrix: [0, 14], x: 14, w: 1 },
   ],
   [
-    { main:'Tab',          w:1.5,  x:0,    r:1, c:0  },
-    { main:'Q',            w:1,    x:1.5,  r:1, c:1  },
-    { main:'W',            w:1,    x:2.5,  r:1, c:2  },
-    { main:'E',            w:1,    x:3.5,  r:1, c:3  },
-    { main:'R',            w:1,    x:4.5,  r:1, c:4  },
-    { main:'T',            w:1,    x:5.5,  r:1, c:5  },
-    { main:'Y',            w:1,    x:6.5,  r:1, c:6  },
-    { main:'U',            w:1,    x:7.5,  r:1, c:7  },
-    { main:'I',            w:1,    x:8.5,  r:1, c:8  },
-    { main:'O',            w:1,    x:9.5,  r:1, c:9  },
-    { main:'P',            w:1,    x:10.5, r:1, c:10 },
-    { main:'[', alt:'{',   w:1,    x:11.5, r:1, c:11 },
-    { main:']', alt:'}',   w:1,    x:12.5, r:1, c:12 },
-    { main:'Bspc',         w:1.5,  x:13.5, r:1, c:13 },
-    { main:'PgUp',         w:1,    x:15,   r:1, c:14 },
+    { legend: 'Tab', matrix: [1, 0], x: 0, w: 1.5 },
+    { legend: 'Q', matrix: [1, 1], x: 1.5, w: 1 },
+    { legend: 'W', matrix: [1, 2], x: 2.5, w: 1 },
+    { legend: 'E', matrix: [1, 3], x: 3.5, w: 1 },
+    { legend: 'R', matrix: [1, 4], x: 4.5, w: 1 },
+    { legend: 'T', matrix: [1, 5], x: 5.5, w: 1 },
+    { legend: 'Y', matrix: [1, 6], x: 6.5, w: 1 },
+    { legend: 'U', matrix: [1, 7], x: 7.5, w: 1 },
+    { legend: 'I', matrix: [1, 8], x: 8.5, w: 1 },
+    { legend: 'O', matrix: [1, 9], x: 9.5, w: 1 },
+    { legend: 'P', matrix: [1, 10], x: 10.5, w: 1 },
+    { legend: '[', shifted: '{', matrix: [1, 11], x: 11.5, w: 1 },
+    { legend: ']', shifted: '}', matrix: [1, 12], x: 12.5, w: 1 },
+    { legend: 'Bspc', matrix: [1, 13], x: 13.5, w: 1.5 },
+    { legend: 'PgUp', matrix: [1, 14], x: 15, w: 1 },
   ],
   [
-    { main:'Ctrl',         w:1.75, x:0,    r:2, c:0  },
-    { main:'A',            w:1,    x:1.75, r:2, c:1  },
-    { main:'S',            w:1,    x:2.75, r:2, c:2  },
-    { main:'D',            w:1,    x:3.75, r:2, c:3  },
-    { main:'F',            w:1,    x:4.75, r:2, c:4  },
-    { main:'G',            w:1,    x:5.75, r:2, c:5  },
-    { main:'H',            w:1,    x:6.75, r:2, c:6  },
-    { main:'J',            w:1,    x:7.75, r:2, c:7  },
-    { main:'K',            w:1,    x:8.75, r:2, c:8  },
-    { main:'L',            w:1,    x:9.75, r:2, c:9  },
-    { main:';', alt:':',   w:1,    x:10.75,r:2, c:10 },
-    { main:"'", alt:'"',   w:1,    x:11.75,r:2, c:11 },
-    { main:'Enter',        w:2.25, x:12.75,r:2, c:12 },
-    { main:'PgDn',         w:1,    x:15,   r:2, c:13 },
+    { legend: 'Ctrl', matrix: [2, 0], x: 0, w: 1.75 },
+    { legend: 'A', matrix: [2, 1], x: 1.75, w: 1 },
+    { legend: 'S', matrix: [2, 2], x: 2.75, w: 1 },
+    { legend: 'D', matrix: [2, 3], x: 3.75, w: 1 },
+    { legend: 'F', matrix: [2, 4], x: 4.75, w: 1 },
+    { legend: 'G', matrix: [2, 5], x: 5.75, w: 1 },
+    { legend: 'H', matrix: [2, 6], x: 6.75, w: 1 },
+    { legend: 'J', matrix: [2, 7], x: 7.75, w: 1 },
+    { legend: 'K', matrix: [2, 8], x: 8.75, w: 1 },
+    { legend: 'L', matrix: [2, 9], x: 9.75, w: 1 },
+    { legend: ';', shifted: ':', matrix: [2, 10], x: 10.75, w: 1 },
+    { legend: "'", shifted: '"', matrix: [2, 11], x: 11.75, w: 1 },
+    { legend: 'Enter', matrix: [2, 12], x: 12.75, w: 2.25 },
+    { legend: 'PgDn', matrix: [2, 13], x: 15, w: 1 },
   ],
   [
-    { main:'Shift',        w:2.25, x:0,    r:3, c:0  },
-    { main:'Z',            w:1,    x:2.25, r:3, c:1  },
-    { main:'X',            w:1,    x:3.25, r:3, c:2  },
-    { main:'C',            w:1,    x:4.25, r:3, c:3  },
-    { main:'V',            w:1,    x:5.25, r:3, c:4  },
-    { main:'B',            w:1,    x:6.25, r:3, c:5  },
-    { main:'N',            w:1,    x:7.25, r:3, c:6  },
-    { main:'M',            w:1,    x:8.25, r:3, c:7  },
-    { main:',', alt:'<',   w:1,    x:9.25, r:3, c:8  },
-    { main:'.', alt:'>',   w:1,    x:10.25,r:3, c:9  },
-    { main:'/', alt:'?',   w:1,    x:11.25,r:3, c:10 },
-    { main:'Shift',        w:1.75, x:12.25,r:3, c:11 },
-    { main:'↑',            w:1,    x:14,   r:3, c:12 },
-    { main:'Ins',          w:1,    x:15,   r:3, c:13 },
+    { legend: 'Shift', matrix: [3, 0], x: 0, w: 2.25 },
+    { legend: 'Z', matrix: [3, 1], x: 2.25, w: 1 },
+    { legend: 'X', matrix: [3, 2], x: 3.25, w: 1 },
+    { legend: 'C', matrix: [3, 3], x: 4.25, w: 1 },
+    { legend: 'V', matrix: [3, 4], x: 5.25, w: 1 },
+    { legend: 'B', matrix: [3, 5], x: 6.25, w: 1 },
+    { legend: 'N', matrix: [3, 6], x: 7.25, w: 1 },
+    { legend: 'M', matrix: [3, 7], x: 8.25, w: 1 },
+    { legend: ',', shifted: '<', matrix: [3, 8], x: 9.25, w: 1 },
+    { legend: '.', shifted: '>', matrix: [3, 9], x: 10.25, w: 1 },
+    { legend: '/', shifted: '?', matrix: [3, 10], x: 11.25, w: 1 },
+    { legend: 'Shift', matrix: [3, 11], x: 12.25, w: 1.75 },
+    { legend: '↑', matrix: [3, 12], x: 14, w: 1 },
+    { legend: 'Ins', matrix: [3, 13], x: 15, w: 1 },
   ],
   [
-    { main:'Fn',           w:1.5,  x:0,    r:4, c:0  },
-    { main:'Cmd',          w:1.5,  x:2.5,  r:4, c:1  },
-    { main:'Space',        w:7,    x:4,    r:4, c:2  },
-    { main:'Cmd',          w:1.5,  x:11,   r:4, c:3  },
-    { main:'←',            w:1,    x:13,   r:4, c:4  },
-    { main:'↓',            w:1,    x:14,   r:4, c:5  },
-    { main:'→',            w:1,    x:15,   r:4, c:6  },
+    { legend: 'Fn', matrix: [4, 0], x: 0, w: 1.5 },
+    { legend: 'Cmd', matrix: [4, 1], x: 2.5, w: 1.5 },
+    { legend: 'Space', matrix: [4, 2], x: 4, w: 7 },
+    { legend: 'Cmd', matrix: [4, 3], x: 11, w: 1.5 },
+    { legend: '←', matrix: [4, 4], x: 13, w: 1 },
+    { legend: '↓', matrix: [4, 5], x: 14, w: 1 },
+    { legend: '→', matrix: [4, 6], x: 15, w: 1 },
   ],
 ];
 
-export const KEYCODES = {
-  Letters:    ['A','B','C','D','E','F','G','H','I','J','K','L','M','N','O','P','Q','R','S','T','U','V','W','X','Y','Z'],
-  Numbers:    ['1','2','3','4','5','6','7','8','9','0'],
-  Modifiers:  ['Shift','Ctrl','Alt','Cmd','Fn','CapsLk','Tab','Bspc','Enter','Space','Esc','Del'],
-  Navigation: ['↑','↓','←','→','PgUp','PgDn','Home','End','Ins','Del'],
-  Function:   ['F1','F2','F3','F4','F5','F6','F7','F8','F9','F10','F11','F12'],
-  Symbols:    ['`','~','-','_','=','+','[','{',']','}','\\','|',';',':\'','"',',','<','.','>',' /','?','!','@','#','$','%','^','&','*','(',')'],
-};
+const GROUPS = [
+  {
+    name: 'Alphas',
+    options: [
+      ['A', 0x0004], ['B', 0x0005], ['C', 0x0006], ['D', 0x0007], ['E', 0x0008], ['F', 0x0009],
+      ['G', 0x000a], ['H', 0x000b], ['I', 0x000c], ['J', 0x000d], ['K', 0x000e], ['L', 0x000f],
+      ['M', 0x0010], ['N', 0x0011], ['O', 0x0012], ['P', 0x0013], ['Q', 0x0014], ['R', 0x0015],
+      ['S', 0x0016], ['T', 0x0017], ['U', 0x0018], ['V', 0x0019], ['W', 0x001a], ['X', 0x001b],
+      ['Y', 0x001c], ['Z', 0x001d],
+    ],
+  },
+  {
+    name: 'Numbers',
+    options: [
+      ['1', 0x001e], ['2', 0x001f], ['3', 0x0020], ['4', 0x0021], ['5', 0x0022],
+      ['6', 0x0023], ['7', 0x0024], ['8', 0x0025], ['9', 0x0026], ['0', 0x0027],
+    ],
+  },
+  {
+    name: 'Punctuation',
+    options: [
+      ['-', 0x002d], ['=', 0x002e], ['[', 0x002f], [']', 0x0030], ['\\', 0x0031],
+      [';', 0x0033], ["'", 0x0034], ['`', 0x0035], [',', 0x0036], ['.', 0x0037], ['/', 0x0038],
+    ],
+  },
+  {
+    name: 'Modifiers',
+    options: [
+      ['Ctrl', 0x00e0], ['Shift', 0x00e1], ['Alt', 0x00e2], ['Cmd', 0x00e3],
+      ['RCtrl', 0x00e4], ['RShift', 0x00e5], ['RAlt', 0x00e6], ['RCmd', 0x00e7],
+      ['Caps', 0x0039], ['Fn', 0x7e01], ['OS Toggle', 0x7e00],
+    ],
+  },
+  {
+    name: 'Editing',
+    options: [
+      ['Esc', 0x0029], ['Tab', 0x002b], ['Enter', 0x0028], ['Space', 0x002c], ['Bspc', 0x002a],
+      ['Delete', 0x004c], ['Insert', 0x0049], ['Home', 0x004a], ['End', 0x004d], ['PgUp', 0x004b], ['PgDn', 0x004e],
+    ],
+  },
+  {
+    name: 'Arrows',
+    options: [
+      ['←', 0x0050], ['→', 0x004f], ['↑', 0x0052], ['↓', 0x0051],
+    ],
+  },
+  {
+    name: 'Function',
+    options: [
+      ['F1', 0x003a], ['F2', 0x003b], ['F3', 0x003c], ['F4', 0x003d], ['F5', 0x003e], ['F6', 0x003f],
+      ['F7', 0x0040], ['F8', 0x0041], ['F9', 0x0042], ['F10', 0x0043], ['F11', 0x0044], ['F12', 0x0045],
+      ['Boot', 0x7e02],
+    ],
+  },
+  {
+    name: 'Media',
+    options: [
+      ['Mute', 0x00a8], ['Vol+', 0x00a9], ['Vol-', 0x00aa], ['Play', 0x00ae], ['Next', 0x00ab], ['Prev', 0x00ac],
+    ],
+  },
+  {
+    name: 'Layer',
+    options: [
+      ['Trans', 0x0001], ['No', 0x0000],
+    ],
+  },
+];
 
-export const KC_MAP = {
-  // Letters
-  'A':0x04,'B':0x05,'C':0x06,'D':0x07,'E':0x08,'F':0x09,'G':0x0A,'H':0x0B,
-  'I':0x0C,'J':0x0D,'K':0x0E,'L':0x0F,'M':0x10,'N':0x11,'O':0x12,'P':0x13,
-  'Q':0x14,'R':0x15,'S':0x16,'T':0x17,'U':0x18,'V':0x19,'W':0x1A,'X':0x1B,
-  'Y':0x1C,'Z':0x1D,
+export const KEYCODE_GROUPS = GROUPS;
 
-  // Numbers
-  '1':0x1E,'2':0x1F,'3':0x20,'4':0x21,'5':0x22,
-  '6':0x23,'7':0x24,'8':0x25,'9':0x26,'0':0x27,
+export const KEYCODE_LABELS = Object.fromEntries(
+  GROUPS.flatMap((group) => group.options.map(([label, keycode]) => [keycode, label]))
+);
 
-  // Modifiers & special
-  'ESC':0x29,'BSPC':0x2A,'TAB':0x2B,'SPACE':0x2C,'ENTER':0x28,
-  'DEL':0x4C,'INS':0x49,'CAPSLK':0x39,
-  'LCTL':0xE0,'LSFT':0xE1,'LALT':0xE2,'LGUI':0xE3,
-  'RCTL':0xE4,'RSFT':0xE5,'RALT':0xE6,'RGUI':0xE7,
-  'CTRL':0xE0,'SHIFT':0xE1,'ALT':0xE2,'CMD':0xE3,
+export function getKeyLabel(keycode) {
+  if (keycode in KEYCODE_LABELS) {
+    return KEYCODE_LABELS[keycode];
+  }
 
-  // Navigation
-  'LEFT':0x50,'←':0x50,
-  'RIGHT':0x4F,'→':0x4F,
-  'UP':0x52,'↑':0x52,
-  'DOWN':0x51,'↓':0x51,
-  'PGUP':0x4B,'PGDN':0x4E,
-  'HOME':0x4A,'END':0x4D,
+  if (keycode >= 0x0004 && keycode <= 0x001d) {
+    return String.fromCharCode('A'.charCodeAt(0) + keycode - 0x0004);
+  }
 
-  // Function keys
-  'F1':0x3A,'F2':0x3B,'F3':0x3C,'F4':0x3D,'F5':0x3E,'F6':0x3F,
-  'F7':0x40,'F8':0x41,'F9':0x42,'F10':0x43,'F11':0x44,'F12':0x45,
+  return `0x${keycode.toString(16).toUpperCase().padStart(4, '0')}`;
+}
 
-  // Symbols (unshifted)
-  '-':0x2D,'=':0x2E,'[':0x2F,']':0x30,'\\':0x31,
-  ';':0x33,"'":0x34,'`':0x35,',':0x36,'.':0x37,'/':0x38,
-};
+export function getPhysicalKey(row, col) {
+  return MATRIX_LAYOUT.flat().find((key) => key.matrix[0] === row && key.matrix[1] === col) ?? null;
+}

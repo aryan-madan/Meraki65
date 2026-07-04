@@ -1,16 +1,28 @@
-# React + Vite
+# Keydeck for aryanworks Meraki
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+This app is the local WebHID configurator for the `aryanworks Meraki` keyboard firmware in this project.
 
-Currently, two official plugins are available:
+## What it does
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Babel](https://babeljs.io/) (or [oxc](https://oxc.rs) when used in [rolldown-vite](https://vite.dev/guide/rolldown)) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Connects to the Meraki firmware over WebHID
+- Reads and writes all four dynamic keymap layers
+- Toggles the keyboard between Windows and Mac mode
+- Resets the dynamic keymap back to firmware defaults
+- Enables the firmware debug stream and highlights pressed matrix positions live
 
-## React Compiler
+## Run it locally
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+1. Open a terminal in this `Software` folder
+2. Install dependencies with `npm install`
+3. Start the dev server with `npm run dev`
+4. Open the shown local URL in Chrome or Edge
 
-## Expanding the ESLint configuration
+## Production build
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+Run `npm run build` to generate the static app in `dist/`.
+
+## Notes
+
+- The app expects the firmware USB IDs from this project: `VID 0xFEED`, `PID 0x6537`
+- Live pressed-key highlighting requires firmware debug mode to be enabled from the app
+- The firmware itself still logs full key press details to QMK console for deeper debugging
