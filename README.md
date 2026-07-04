@@ -14,8 +14,8 @@
 
 # Finished Build
 
-![alt text](<Meraki 2.png>) 
-![alt text](<Meraki 1.png>)
+![Build 1](<Assets/Meraki 1.png>)
+![Build 2](<Assets/Meraki 2.png>)
 
 # Name
 
